@@ -1,14 +1,13 @@
 <?php
 namespace frame\lib;
+use frame\lib\config;
 class model extends \PDO
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=47.106.234.75;dbname=design_glong';
-        $username = 'root';
-        $passwd = 'GL-15703276938';
+        $database = config::all('database');
         try{
-            parent::__construct($dsn,$username,$passwd);
+            parent::__construct($database['DSN'],$database['USERNAME'],$database['PASSWD']);
         }catch(\PDOException $e){
             get_dump($e->getMessage());
         }

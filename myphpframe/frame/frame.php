@@ -1,10 +1,13 @@
 <?php
 namespace frame;
+use frame\lib\log;
 class frame{
     public static $classMap = array();
     protected $assign;
     static public function run()
     {
+        \frame\lib\log::init();
+        \frame\lib\log::log($_SERVER,'server');
         $route = new \frame\lib\route();
         //加载控制器
         $controllerClass = $route->contro;
@@ -16,6 +19,7 @@ class frame{
             include $controfile;
             $contro = new $controClass();
             $contro->$action();
+            \frame\lib\log::log('controller:'.$controClass.PHP_EOL.'action:'.$action,'log');
         }else{
             throw new \Exception("找不到控制器".$controllerClass);
         }

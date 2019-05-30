@@ -1,5 +1,6 @@
 <?php
 namespace frame\lib;
+use frame\lib\config;
 class route{
     public $contro;
     public $action;
@@ -21,7 +22,7 @@ class route{
                 $this->action = $patharr[1];
                 unset($patharr[1]);
             }else{
-                $this->action = 'index';
+                $this->action = config::get('ACTION','route');
             }
             // url 多余部分转换为参数
             // id/1/name/glong/sex/1
@@ -34,8 +35,8 @@ class route{
                 $i = $i+2;
             }
         }else{
-            $this->contro = 'index';
-            $this->action = 'index';
+            $this->contro = config::get('CONTROLLER','route');
+            $this->action = config::get('ACTION','route');
         }
     }
 }
