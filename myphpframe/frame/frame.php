@@ -48,8 +48,14 @@ class frame{
     public function display($file){
         $file = APP.'/views/'.$file;
         if(is_file($file)){
-            extract($this->assign);
-            include $file;
+            
+            $loader = new \Twig\Loader\FilesystemLoader(APP.'/views');
+            $twig = new \Twig\Environment($loader, [
+            'cache' => MYFRAME.'/log/twig',
+            'debug' => DEBUG
+            ]);
+            $template = $twig->load('index.html');
+            $template->display($this->assign ?? '');
         }
     }
 }

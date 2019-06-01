@@ -1,15 +1,12 @@
 <?php
 namespace frame\lib;
 use frame\lib\config;
-class model extends \PDO
+use Medoo\Medoo;
+class model extends Medoo
 {
     public function __construct()
     {
-        $database = config::all('database');
-        try{
-            parent::__construct($database['DSN'],$database['USERNAME'],$database['PASSWD']);
-        }catch(\PDOException $e){
-            get_dump($e->getMessage());
-        }
+        $option = config::all('database');
+        parent::__construct($option);
     }
 }

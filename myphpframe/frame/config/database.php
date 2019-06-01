@@ -1,6 +1,9 @@
 <?php
 return [
-    'DSN'       => 'mysql:host=47.106.234.75;dbname=design_glong',
-    'USERNAME'  => 'root',
-    'PASSWD'  => 'GL-15703276938',
+    'database_type' => 'mysql',
+    'database_name' => 'gl_test',
+    'server' => '127.0.0.1',
+    'username' => 'root',
+    'password' => 'Gl_15703276938',
+    'charset' => 'utf8',
 ];

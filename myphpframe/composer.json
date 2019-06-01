@@ -1,0 +1,21 @@
+{
+    "name" : "my php frame",
+    "description": "PHP framework",
+    "type": "Framework",
+    "keywords": [
+        "php" ,"php framework"
+    ],
+    "require":{
+        "php": ">= 5.3.0",
+        "filp/whoops": "*",
+        "symfony/var-dumper": "*",
+        "catfan/medoo": "*",
+        "twig/twig": "*"
+    },
+    "repositories" : {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.huaweicloud.com/repository/php/"
+        }
+    }
+}
